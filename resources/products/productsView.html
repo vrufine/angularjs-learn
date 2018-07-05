@@ -1,0 +1,47 @@
+<div id="users" ng-controller="productCtrl">
+  <div class="row">
+    <div class="col">
+      <form ng-submit="registerNewProduct()">
+        <div class="form-group">
+          <label for="descriptionNewProduct">Description</label>
+          <input type="text" class="form-control" id="descriptionNewProduct" placeholder="Enter a description" ng-model="newProduct.description">
+        </div>
+        <div class="form-group">
+          <label for="priceNewProduct">Price</label>
+          <input type="number" step="0.01" class="form-control" id="priceNewProduct" placeholder="Price" ng-model="newProduct.price">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-submit="registerNewProduct()">Register</button>
+      </form>
+    </div>
+    <!-- Products list -->
+    <div class="col">
+      <div class="row">
+        <div class="col">Products list</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="product in users">
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ product.email }}</td>
+                <td>{{ product.password }}</td>
+                <td>
+                  <button ng-click="deleteProduct(product.id)" class="btn btn-danger">X</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

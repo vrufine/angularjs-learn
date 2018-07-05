@@ -1,0 +1,47 @@
+<div id="users" ng-controller="userCtrl">
+  <div class="row">
+    <div class="col">
+      <form ng-submit="registerNewUser()">
+        <div class="form-group">
+          <label for="emailNewUser">E-mail</label>
+          <input type="email" class="form-control" id="emailNewUser" aria-describedby="emailHelp" placeholder="Enter e-mail" ng-model="newUser.email">
+        </div>
+        <div class="form-group">
+          <label for="passwordNewUser">Password</label>
+          <input type="password" class="form-control" id="passwordNewUser" placeholder="Password" ng-model="newUser.password">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-submit="registerNewUser()">Register</button>
+      </form>
+    </div>
+    <!-- Users list -->
+    <div class="col">
+      <div class="row">
+        <div class="col">Users list</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users">
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>
+                  <button ng-click="deleteUser(user.id)" class="btn btn-danger">X</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
